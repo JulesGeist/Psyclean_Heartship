@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://e0jeg5lh8aqw"]
+
+[ext_resource type="Script" path="res://Scenes/ui/hotbar/hotbar.gd" id="1_u6i0i"]
+[ext_resource type="PackedScene" uid="uid://bmj2bwwwkhrlt" path="res://Scenes/ui/item_slot.tscn" id="2_oa171"]
+
+[node name="Hotbar" type="GridContainer"]
+script = ExtResource("1_u6i0i")
+ItemSlot = ExtResource("2_oa171")

@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8hpgf3mdj30y"]
+
+[ext_resource type="Script" path="res://Scripts/trash.gd" id="1_g7abx"]
+[ext_resource type="Texture2D" uid="uid://dwiwt1xwh8hxr" path="res://Assets/images/Sprites/Objects/Modern_Exteriors_Singles_16x16/Modern_Exteriors_Singles_Trash_5.png" id="2_c0pb6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b3nlf"]
+radius = 5.0
+
+[node name="Trash" type="RigidBody2D"]
+light_mask = 3
+visibility_layer = 3
+gravity_scale = 0.0
+script = ExtResource("1_g7abx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+texture = ExtResource("2_c0pb6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 3
+visibility_layer = 3
+position = Vector2(1, -5)
+scale = Vector2(1.1, 1.1)
+shape = SubResource("CircleShape2D_b3nlf")

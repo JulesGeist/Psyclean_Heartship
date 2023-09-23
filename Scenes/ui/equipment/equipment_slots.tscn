@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dofhoxm5aymaf"]
+
+[ext_resource type="Script" path="res://Scenes/ui/equipment/equipment_slots.gd" id="1_s4cra"]
+[ext_resource type="PackedScene" uid="uid://bmj2bwwwkhrlt" path="res://Scenes/ui/item_slot.tscn" id="2_hmwfk"]
+
+[node name="EquipmentSlots" type="GridContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_s4cra")
+ItemSlot = ExtResource("2_hmwfk")

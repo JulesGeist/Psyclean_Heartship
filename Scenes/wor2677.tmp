@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://jv2llkoxp31y"]
+
+[ext_resource type="Script" path="res://Scripts/world.gd" id="1_d8gky"]
+[ext_resource type="PackedScene" uid="uid://e0jeg5lh8aqw" path="res://Scenes/ui/hotbar/hotbar.tscn" id="2_t33em"]
+[ext_resource type="PackedScene" uid="uid://cgps8euobftlx" path="res://Scenes/ui/inventory_menu/inventory_menu.tscn" id="3_cyme7"]
+[ext_resource type="PackedScene" uid="uid://dofhoxm5aymaf" path="res://Scenes/ui/equipment/equipment_slots.tscn" id="4_4xd1a"]
+[ext_resource type="PackedScene" uid="uid://mvtvqtoemm0q" path="res://Scenes/ui/drag_preview/drag_preview.tscn" id="4_5hkk5"]
+[ext_resource type="PackedScene" uid="uid://bvypn2nc1btab" path="res://Scenes/Player.tscn" id="5_b2d26"]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_d8gky")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Hotbar" parent="UI" instance=ExtResource("2_t33em")]
+scale = Vector2(2, 2)
+
+[node name="InventoryMenu" parent="UI" instance=ExtResource("3_cyme7")]
+scale = Vector2(2, 2)
+
+[node name="EquipmentSlots" parent="UI" instance=ExtResource("4_4xd1a")]
+scale = Vector2(2, 2)
+
+[node name="DragPreview" parent="UI" instance=ExtResource("4_5hkk5")]
+offset_left = -24.0
+offset_top = -24.0
+offset_right = -6.0
+offset_bottom = -6.0
+
+[node name="Player" parent="." instance=ExtResource("5_b2d26")]
+position = Vector2(512, 256)
+
+[node name="StartPosition" type="Marker2D" parent="."]
+position = Vector2(576, 600)
+
+[node name="TrashSpawn" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="TrashSpawn" to="." method="_on_trash_spawn_timeout"]

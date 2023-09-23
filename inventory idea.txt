@@ -1,0 +1,51 @@
+items dictionary
+{
+    "main": {
+        "sword": "data",
+        "trash": "data",
+        "stackable": false
+    },
+    "equipment": {
+        "sword": "data",
+        "armour": "data",
+        "stackable": false
+	}
+}
+
+
+data example
+
+items dictionary
+
+inventories
+{
+    "main": {
+        "sword": {
+			"name": "Sword",
+			"icon": "sword.png",
+			"upgrades": {inventories[sword_upgrades]
+			},
+			"stackable": false,
+			"range": 10
+		},
+        "trash": "data",
+        "stackable": false
+    },
+    "equipment": {
+        "sword": "data",
+        "armour": "data",
+        "stackable": false
+	},
+	"sword_upgrades": {
+		
+	},
+	"tent": {
+		
+	}
+}
+
+"sword": {
+        "name": "Sword",
+        "icon": "sword.png",
+        "stackable": false
+    }

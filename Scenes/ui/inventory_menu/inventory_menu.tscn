@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgps8euobftlx"]
+
+[ext_resource type="Script" path="res://Scenes/ui/inventory_menu/inventory_menu.gd" id="1_r6ei1"]
+[ext_resource type="PackedScene" uid="uid://bmj2bwwwkhrlt" path="res://Scenes/ui/item_slot.tscn" id="2_fcut4"]
+
+[node name="InventoryMenu" type="GridContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_r6ei1")
+ItemSlot = ExtResource("2_fcut4")

@@ -1,0 +1,47 @@
+{
+	"sword": {
+		"name": "Sword",
+		"icon": "sword.png",
+		"stackable": false,
+		"equipable": true
+	},
+	"armor": {
+		"name": "Armor",
+		"icon": "armor.png",
+		"stackable": false,
+		"equipable": true
+	},
+	"apple": {
+		"name": "Apple",
+		"icon": "apple.png",
+		"stackable": true,
+		"quantity": 1,
+		"equipable": false
+	},
+	"potion": {
+		"name": "Potion",
+		"icon": "potion.png",
+		"stackable": true,
+		"quantity": 1,
+		"equipable": false
+	},
+	"trash": {
+		"name": "Trash",
+		"icon": "Sprites/Objects/Modern_Exteriors_Singles_16x16/Modern_Exteriors_Singles_Trash_5.png",
+		"stackable": true,
+		"quantity": 1,
+		"equipable": false
+	},
+	"picker": {
+		"name": "Picker",
+		"icon": "Sprites/Objects/Modern_Exteriors_Singles_16x16/Modern_Exteriors_Singles_Worksite_Spade_1.png",
+		"stackable": false,
+		"equipable": true,
+		"inventory": true,
+		"inv_data": {
+			"cols": 1,
+			"rows": 3,
+			"equipment_type": ["picker"]
+		}
+	}
+}

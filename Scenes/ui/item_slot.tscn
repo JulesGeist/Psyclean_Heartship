@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://bmj2bwwwkhrlt"]
+
+[ext_resource type="Script" path="res://Scenes/ui/item_slot.gd" id="1_b8ar0"]
+[ext_resource type="Texture2D" uid="uid://cfscgiv6rmwna" path="res://Assets/images/apple.png" id="2_toxdj"]
+[ext_resource type="FontFile" uid="uid://dwilasui5pw35" path="res://Assets/font/PressStart2P.ttf" id="3_lt644"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xx6j4"]
+line_spacing = 1.0
+font = ExtResource("3_lt644")
+font_size = 4
+
+[node name="ItemSlot" type="ColorRect" groups=["item_slot"]]
+custom_minimum_size = Vector2(18, 18)
+offset_right = 18.0
+offset_bottom = 18.0
+color = Color(0.2, 0.2, 0.2, 1)
+script = ExtResource("1_b8ar0")
+
+[node name="ItemIcon" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_toxdj")
+
+[node name="ItemQuantity" type="Label" parent="."]
+layout_mode = 0
+offset_right = 18.0
+offset_bottom = 18.0
+text = "1"
+label_settings = SubResource("LabelSettings_xx6j4")
+horizontal_alignment = 2

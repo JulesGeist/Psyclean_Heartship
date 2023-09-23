@@ -1,77 +1,77 @@
-[gd_scene load_steps=11 format=3 uid="uid://dt2jkxvj7lxf3"]
+[gd_scene load_steps=7 format=3 uid="uid://dt2jkxvj7lxf3"]
 
 [ext_resource type="Script" path="res://Scripts/dancer.gd" id="1_hoey1"]
-[ext_resource type="Texture2D" uid="uid://dogbs0b0gt5n5" path="res://Assets/images/Sprites/Characters/Amelia_idle_anim_16x16.png" id="2_mdpwx"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ranyu"]
-atlas = ExtResource("2_mdpwx")
-region = Rect2(96, 0, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_j06dx"]
-atlas = ExtResource("2_mdpwx")
-region = Rect2(112, 0, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nhx7j"]
-atlas = ExtResource("2_mdpwx")
-region = Rect2(128, 0, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_img6i"]
-atlas = ExtResource("2_mdpwx")
-region = Rect2(144, 0, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6er2l"]
-atlas = ExtResource("2_mdpwx")
-region = Rect2(160, 0, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_p3dvc"]
-atlas = ExtResource("2_mdpwx")
-region = Rect2(176, 0, 16, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_k3i4h"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ranyu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_j06dx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nhx7j")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_img6i")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6er2l")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_p3dvc")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}]
+[ext_resource type="SpriteFrames" uid="uid://c1em2iwu8o0iw" path="res://guest1-animations.tres" id="2_61tiq"]
+[ext_resource type="Texture2D" uid="uid://bh6cw066nm6mv" path="res://Assets/images/Sprites/Modern_UI_Style_2.png" id="3_o5r5m"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uw3sj"]
 radius = 7.0
 height = 21.0
 
-[node name="Dancer" type="CharacterBody2D"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bxgq4"]
+texture = ExtResource("3_o5r5m")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 2
+region_rect = Rect2(310, 180, 4, 7)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wswde"]
+texture = ExtResource("3_o5r5m")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 2
+region_rect = Rect2(310, 164, 4, 7)
+
+[node name="Dancer" type="CharacterBody2D" groups=["guest"]]
 visibility_layer = 3
 script = ExtResource("1_hoey1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -10)
-sprite_frames = SubResource("SpriteFrames_k3i4h")
-animation = &"idle"
+sprite_frames = ExtResource("2_61tiq")
+animation = &"idle_twist"
+frame = 2
+frame_progress = 0.00350916
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5)
 shape = SubResource("CapsuleShape2D_uw3sj")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+navigation_layers = 3
+avoidance_layers = 5
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
 visible = false
 radius = 25.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="trash-timer" type="Timer" parent="."]
+wait_time = 5.186
+autostart = true
+
+[node name="Empathy" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Empathy_Bar" type="ProgressBar" parent="Empathy"]
+custom_minimum_size = Vector2(4, 6)
+layout_mode = 0
+offset_left = -4.0
+offset_top = -24.0
+offset_right = 4.0
+offset_bottom = -18.0
+size_flags_horizontal = 4
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxTexture_bxgq4")
+theme_override_styles/fill = SubResource("StyleBoxTexture_wswde")
+max_value = 2.0
+step = 1.0
+show_percentage = false
+
+[connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="trash-timer" to="." method="_on_trashtimer_timeout"]

@@ -1,24 +1,33 @@
-[gd_scene load_steps=4 format=3 uid="uid://c8hpgf3mdj30y"]
+[gd_scene load_steps=5 format=3 uid="uid://c8hpgf3mdj30y"]
 
 [ext_resource type="Script" path="res://Scripts/trash.gd" id="1_g7abx"]
-[ext_resource type="Texture2D" uid="uid://dwiwt1xwh8hxr" path="res://Assets/images/Sprites/Objects/Modern_Exteriors_Singles_16x16/Modern_Exteriors_Singles_Trash_5.png" id="2_c0pb6"]
+[ext_resource type="Texture2D" uid="uid://b83nx18thq8p8" path="res://Assets/images/objects/ME_Singles_City_Props_16x16_Trash_5.png" id="2_1dmnq"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_asinu"]
+friction = 0.65
+rough = true
+bounce = 0.09
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b3nlf"]
-radius = 5.0
+radius = 6.0
 
 [node name="Trash" type="RigidBody2D"]
 light_mask = 3
 visibility_layer = 3
+collision_layer = 3
+collision_mask = 3
+physics_material_override = SubResource("PhysicsMaterial_asinu")
 gravity_scale = 0.0
+max_contacts_reported = 1
+contact_monitor = true
 script = ExtResource("1_g7abx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -8)
-texture = ExtResource("2_c0pb6")
+texture = ExtResource("2_1dmnq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 light_mask = 3
 visibility_layer = 3
-position = Vector2(1, -5)
-scale = Vector2(1.1, 1.1)
+position = Vector2(1, -6)
 shape = SubResource("CircleShape2D_b3nlf")

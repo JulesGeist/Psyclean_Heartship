@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://jv2llkoxp31y"]
+[gd_scene load_steps=19 format=3 uid="uid://jv2llkoxp31y"]
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_d8gky"]
 [ext_resource type="PackedScene" uid="uid://e0jeg5lh8aqw" path="res://Scenes/ui/hotbar/hotbar.tscn" id="2_t33em"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://c2i6b37vwd2fs" path="res://Scenes/Player_Psychonaut.tscn" id="8_yc7ab"]
 [ext_resource type="Texture2D" uid="uid://dd7isffwpwj3d" path="res://Assets/images/tilesets/1_Terrains_and_Fences_32x32.png" id="9_o7wy2"]
 [ext_resource type="Texture2D" uid="uid://dmb57ulvjtfly" path="res://Assets/images/tilesets/5_Camping_16x16.png" id="10_uwfho"]
+[ext_resource type="Script" path="res://Scenes/dancer_target.gd" id="11_7a0m1"]
+[ext_resource type="Script" path="res://Scenes/character_target.gd" id="12_bad2d"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_3ghdi"]
 vertices = PackedVector2Array(1152, 0, 1152, 648, 0, 648, 0, 0)
@@ -12373,15 +12375,6 @@ light_mask = 2
 visibility_layer = 2
 position = Vector2(512, 256)
 
-[node name="FollowPointRight" type="Marker2D" parent="Player"]
-position = Vector2(32, 64)
-
-[node name="FollowPointLeft" type="Marker2D" parent="Player"]
-position = Vector2(-32, 64)
-
-[node name="TrashSpawn" type="Timer" parent="."]
-autostart = true
-
 [node name="Player_Sucker" parent="." instance=ExtResource("7_ooa0d")]
 light_mask = 2
 visibility_layer = 2
@@ -12420,4 +12413,34 @@ layer_1/y_sort_origin = 0
 layer_1/z_index = 2
 layer_1/tile_data = PackedInt32Array()
 
+[node name="RichTextLabel" type="RichTextLabel" parent="TileMap"]
+offset_left = 29.0
+offset_top = 24.0
+offset_right = 250.0
+offset_bottom = 192.0
+text = "E =  switch characters
+SPACE = pick trash(picker)
+or empathize guests (psychonaut)
+TAB = Inventory"
+scroll_active = false
+
+[node name="TrashSpawn" type="Timer" parent="."]
+autostart = true
+
+[node name="dancer_target" type="Marker2D" parent="."]
+script = ExtResource("11_7a0m1")
+
+[node name="Timer" type="Timer" parent="dancer_target"]
+process_callback = 0
+wait_time = 0.111
+autostart = true
+
+[node name="character_target" type="Marker2D" parent="."]
+script = ExtResource("12_bad2d")
+
+[connection signal="character_switch" from="." to="Player" method="_on_character_switch"]
+[connection signal="character_switch" from="." to="Player_Sucker" method="_on_character_switch"]
+[connection signal="character_switch" from="." to="Player_Psychonaut" method="_on_character_switch"]
 [connection signal="timeout" from="TrashSpawn" to="." method="_on_trash_spawn_timeout"]
+[connection signal="item_rect_changed" from="dancer_target" to="." method="_on_target_position_changed"]
+[connection signal="timeout" from="dancer_target/Timer" to="dancer_target" method="_on_timer_timeout"]

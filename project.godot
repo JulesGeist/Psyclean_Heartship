@@ -1,8 +1,16 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
 config_version=5
 
 [application]
 
-config/name="Psyclean Project Alex - Version 0.3"
+config/name="Psyclean Project Alex - Development Version"
 run/main_scene="res://Scenes/world.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
 config/icon="res://icon.svg"
@@ -11,6 +19,7 @@ config/icon="res://icon.svg"
 
 Global="*res://Scripts/Global.gd"
 Inventory="*res://Scripts/Inventory.gd"
+DancerTarget="*res://Scenes/dancer_target.gd"
 
 [display]
 
@@ -19,6 +28,10 @@ window/stretch/mode="canvas_items"
 [dotnet]
 
 project/assembly_name="Psyclean Project Alex"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/AS2P/plugin.cfg")
 
 [input]
 
@@ -58,6 +71,25 @@ Attack={
 , Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":false,"double_click":false,"script":null)
 ]
 }
+Switch={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":101,"echo":false,"script":null)
+]
+}
+
+[layer_names]
+
+2d_physics/layer_3="character_distance"
+
+[physics]
+
+2d/physics_engine="GodotPhysics2D"
+2d/default_gravity=100.0
+2d/default_gravity_vector=Vector2(0, 0)
+2d/default_linear_damp=2.0
+2d/default_angular_damp=2.0
+2d/sleep_threshold_linear=0.1
+2d/solver/default_contact_bias=0.2
 
 [rendering]
 

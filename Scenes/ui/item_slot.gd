@@ -5,6 +5,7 @@ extends ColorRect
 
 var inventory_name
 
+	
 func display_item(inv_name, item):
 	if item:
 		item_icon.texture = load("res://Assets/images/%s" % item.icon)

@@ -27,14 +27,14 @@
 	},
 	"trash": {
 		"name": "Trash",
-		"icon": "Sprites/Objects/Modern_Exteriors_Singles_16x16/Modern_Exteriors_Singles_Trash_5.png",
+		"icon": "objects/ME_Singles_City_Props_16x16_Trash_5.png",
 		"stackable": true,
 		"quantity": 1,
 		"equipable": false
 	},
 	"picker": {
 		"name": "Picker",
-		"icon": "Sprites/Objects/Modern_Exteriors_Singles_16x16/Modern_Exteriors_Singles_Worksite_Spade_1.png",
+		"icon": "objects/ME_Singles_Worksite_16x16_Shovel_1.png",
 		"stackable": false,
 		"equipable": true,
 		"inventory": true,

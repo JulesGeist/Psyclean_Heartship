@@ -1,6 +1,8 @@
 # psyclean_game1
 
-PSYCLEAN BULLETHELL ROUGELIKE DANCEFLOOR CLICKER
+**PSYCLEAN BULLETHELL ROUGELIKE DANCEFLOOR CLICKER**
+
+**read additional comments in the file browser**
 
 This mini game takes place on the different dancefloors of the rpg overworld map.
 each dancefloor has several levels. 
@@ -8,9 +10,11 @@ you run a level until you succeed, then automatically spawn back in the rpg worl
 
 Map: dancefloors
 - 3 characters with different tasks (picker, sucker, psychonaut)
-- Enemies: different trash
-- Weapons: sucker, picker, juggling tools. 
-- Weapon upgrades must be crafted or bought or looted in the overworld map.
+- Enemies: different trash, guests without empathy
+- Weapons: suckers, pickers, toys
+- player needs to quickly press and click
+- level-based sessions
+- rewarding upgrades and temporary powerups 
 
 On the dancefloor, you can only get level-ups, buttcoins and moral points, which fill the moral meter of the group.
 You can switch between your characters with a hotkey. 

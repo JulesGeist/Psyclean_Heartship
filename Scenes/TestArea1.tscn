@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=3 uid="uid://wng4yd4q7a7b"]
+
+[ext_resource type="Script" path="res://Scenes/TestArea1.gd" id="1_dpx0h"]
+[ext_resource type="PackedScene" uid="uid://dt6k2n40xxdnw" path="res://Scenes/ItemScenes/BaseItem.tscn" id="2_wrie7"]
+[ext_resource type="PackedScene" uid="uid://bkdtn1snjkp" path="res://Scenes/ItemScenes/BoxItem.tscn" id="3_2dtjo"]
+[ext_resource type="Texture2D" uid="uid://bw8jod18k0tk3" path="res://Assets/images/armor.png" id="4_wwnn3"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_dpx0h")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 381.0
+offset_top = 91.0
+offset_right = 465.0
+offset_bottom = 125.0
+text = "items"
+
+[node name="BaseItem" parent="." instance=ExtResource("2_wrie7")]
+offset_left = 127.0
+offset_top = 54.0
+offset_right = 143.0
+offset_bottom = 70.0
+inventory_slots = 5
+fill_bar = true
+
+[node name="BaseItem2" parent="." instance=ExtResource("2_wrie7")]
+offset_left = 62.0
+offset_top = 55.0
+offset_right = 78.0
+offset_bottom = 71.0
+inventory_slots = 5
+fill_bar = true
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 238.0
+offset_top = 154.0
+offset_right = 346.0
+offset_bottom = 210.0
+text = "delete"
+
+[node name="trashbags" type="Button" parent="."]
+offset_left = 253.0
+offset_top = 34.0
+offset_right = 338.0
+offset_bottom = 65.0
+text = "trashbags"
+
+[node name="BoxItem" parent="." instance=ExtResource("3_2dtjo")]
+offset_left = 216.0
+offset_top = 78.0
+offset_right = 232.0
+offset_bottom = 94.0
+size_flags_horizontal = 4
+immovable = true
+slots = 8
+columns = 2
+item_name = "Box"
+item_type = "BoxItem"
+texture = ExtResource("4_wwnn3")
+fill_bar = true
+
+[connection signal="gui_input" from="Button" to="." method="_on_button_gui_input"]
+[connection signal="gui_input" from="Button2" to="." method="_on_button_2_gui_input"]
+[connection signal="gui_input" from="trashbags" to="." method="_on_trashbags_gui_input"]

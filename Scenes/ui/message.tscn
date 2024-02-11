@@ -1,0 +1,93 @@
+[gd_scene load_steps=9 format=3 uid="uid://dn3jw7dx2avar"]
+
+[ext_resource type="Texture2D" uid="uid://c8q6yrabol2ud" path="res://Assets/images/Sprites/Modern_UI_Style_1.png" id="1_f08sp"]
+[ext_resource type="Script" path="res://Scenes/ui/PowerupMessage.gd" id="2_i8xiq"]
+[ext_resource type="Texture2D" uid="uid://txshm0h2u5o4" path="res://Assets/images/Sprites/powerup_textures.png" id="3_oc6ba"]
+[ext_resource type="FontFile" uid="uid://dwilasui5pw35" path="res://Assets/font/PressStart2P.ttf" id="4_0jqdr"]
+[ext_resource type="Theme" uid="uid://i65ly57n7ouv" path="res://Scenes/ui/main_theme.tres" id="4_gtcv7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1fo7p"]
+atlas = ExtResource("1_f08sp")
+region = Rect2(60, 13, 24, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umm2s"]
+atlas = ExtResource("1_f08sp")
+region = Rect2(336, 197, 17, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mge6l"]
+atlas = ExtResource("3_oc6ba")
+region = Rect2(0, 0, 48, 64)
+
+[node name="Message" type="TextureProgressBar"]
+custom_minimum_size = Vector2(70, 10)
+offset_right = 70.0
+offset_bottom = 10.0
+scale = Vector2(2.81536, 2.81536)
+size_flags_horizontal = 0
+size_flags_vertical = 0
+size_flags_stretch_ratio = 3.06
+value = 50.0
+nine_patch_stretch = true
+stretch_margin_left = 1
+stretch_margin_top = 1
+stretch_margin_right = 1
+stretch_margin_bottom = 1
+texture_under = SubResource("AtlasTexture_1fo7p")
+texture_progress = SubResource("AtlasTexture_umm2s")
+tint_progress = Color(0.92549, 0.294118, 0, 0.698039)
+script = ExtResource("2_i8xiq")
+metadata/_edit_use_anchors_ = true
+
+[node name="Text" type="RichTextLabel" parent="."]
+clip_contents = false
+layout_mode = 0
+offset_left = 20.0
+offset_top = 4.0
+offset_right = 355.0
+offset_bottom = 27.0
+scale = Vector2(0.145092, 0.176255)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 3
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("4_0jqdr")
+theme_override_font_sizes/normal_font_size = 0
+bbcode_enabled = true
+text = "Moral drain divided!"
+scroll_active = false
+autowrap_mode = 0
+tab_size = 1
+shortcut_keys_enabled = false
+meta_underlined = false
+hint_underlined = false
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(5, 5)
+scale = Vector2(0.485689, 0.470524)
+texture = SubResource("AtlasTexture_mge6l")
+hframes = 3
+vframes = 4
+
+[node name="Text2" type="RichTextLabel" parent="."]
+clip_contents = false
+layout_mode = 0
+offset_left = 7.0
+offset_top = 4.0
+offset_right = 71.0
+offset_bottom = 22.0
+scale = Vector2(0.217427, 0.22134)
+theme = ExtResource("4_gtcv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+text = "100.0"
+scroll_active = false
+autowrap_mode = 1
+tab_size = 1
+shortcut_keys_enabled = false
+visible_characters = 4
+visible_ratio = 0.8
+
+[node name="Runtime" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Runtime" to="." method="_on_runtime_timeout"]

@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=3 uid="uid://dqvqxqm6idmax"]
+
+[ext_resource type="Script" path="res://Scripts/Tool.gd" id="1_b3vxt"]
+[ext_resource type="Texture2D" uid="uid://b8okaoi8ko8i5" path="res://Assets/images/Sprites/item_textures.png" id="2_h54da"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_llk08"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_153ok"]
+atlas = ExtResource("2_h54da")
+region = Rect2(176, 176, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_na6f2"]
+
+[node name="Tool" type="RigidBody2D"]
+position = Vector2(1.19209e-07, 9.53674e-07)
+scale = Vector2(0.752424, 0.752424)
+collision_layer = 0
+collision_mask = 0
+mass = 21.54
+custom_integrator = true
+freeze_mode = 1
+linear_damp_mode = 1
+linear_damp = 39.236
+script = ExtResource("1_b3vxt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.38419e-07, 7)
+scale = Vector2(2.24, 1.88)
+shape = SubResource("CircleShape2D_llk08")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -20.0
+offset_top = -13.0
+offset_right = 20.0
+offset_bottom = 27.0
+texture = SubResource("AtlasTexture_153ok")
+metadata/_edit_use_anchors_ = true
+
+[node name="Range" type="Area2D" parent="."]
+modulate = Color(0.141176, 0.670588, 0.662745, 0.129412)
+show_behind_parent = true
+collision_layer = 264
+collision_mask = 256
+monitoring = false
+priority = 1
+gravity_space_override = 1
+gravity_point = true
+gravity_point_unit_distance = 50.0
+gravity_point_center = Vector2(0, 0)
+gravity_direction = Vector2(0, 0)
+gravity = 183.203
+linear_damp_space_override = 1
+
+[node name="RangeCollision" type="CollisionShape2D" parent="Range"]
+modulate = Color(0.372549, 0.815686, 0.913725, 1)
+show_behind_parent = true
+position = Vector2(5, 5)
+scale = Vector2(10, 10)
+shape = SubResource("CircleShape2D_na6f2")
+debug_color = Color(0, 0.298039, 0.352941, 0.0470588)
+
+[node name="Reload" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
+[connection signal="timeout" from="Reload" to="." method="_on_reload_timeout"]

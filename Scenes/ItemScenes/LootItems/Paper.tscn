@@ -1,0 +1,20 @@
+[gd_scene load_steps=6 format=3 uid="uid://dnoq00abdtaq5"]
+
+[ext_resource type="PackedScene" uid="uid://dt6k2n40xxdnw" path="res://Scenes/ItemScenes/BaseItem.tscn" id="1_wtfab"]
+[ext_resource type="Theme" uid="uid://i65ly57n7ouv" path="res://Scenes/ui/main_theme.tres" id="2_d2fjc"]
+[ext_resource type="Texture2D" uid="uid://b83nx18thq8p8" path="res://Assets/images/objects/ME_Singles_City_Props_16x16_Trash_5.png" id="2_xdy0j"]
+[ext_resource type="Texture2D" uid="uid://b8okaoi8ko8i5" path="res://Assets/images/Sprites/item_textures.png" id="3_jeh6o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_78djn"]
+atlas = ExtResource("3_jeh6o")
+region = Rect2(16, 80, 16, 16)
+
+[node name="Paper" groups=["Crafting", "Loot", "Paper"] instance=ExtResource("1_wtfab")]
+theme = ExtResource("2_d2fjc")
+texture_normal = ExtResource("2_xdy0j")
+item_name = "Paper"
+item_type = "Loot"
+texture = SubResource("AtlasTexture_78djn")
+inventory_slots = 0
+inventory_groups = PackedStringArray("Trash")
+inventory_visibility = false

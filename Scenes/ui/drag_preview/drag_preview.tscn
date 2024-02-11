@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://mvtvqtoemm0q"]
+
+[ext_resource type="Script" path="res://Scenes/ui/drag_preview/drag_preview.gd" id="1_0hrxx"]
+[ext_resource type="Texture2D" uid="uid://cfscgiv6rmwna" path="res://Assets/images/apple.png" id="2_h2jsy"]
+[ext_resource type="FontFile" uid="uid://dwilasui5pw35" path="res://Assets/font/PressStart2P.ttf" id="3_m7lrx"]
+
+[node name="DragPreview" type="Control"]
+z_index = 2
+layout_mode = 3
+anchors_preset = 0
+offset_right = 18.0
+offset_bottom = 18.0
+scale = Vector2(2, 2)
+mouse_filter = 2
+script = ExtResource("1_0hrxx")
+
+[node name="ItemIcon" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_h2jsy")
+
+[node name="ItemName" type="Label" parent="."]
+layout_mode = 0
+offset_left = -2.5
+offset_top = 14.5
+offset_right = 21.5
+offset_bottom = 25.5
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_m7lrx")
+theme_override_font_sizes/font_size = 8
+text = "dss"
+horizontal_alignment = 1
+justification_flags = 0

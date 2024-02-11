@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1fvh0dqfoxbe"]
+
+[ext_resource type="PackedScene" uid="uid://dt6k2n40xxdnw" path="res://Scenes/ItemScenes/BaseItem.tscn" id="1_yeqtc"]
+[ext_resource type="Texture2D" uid="uid://dpumv2274qlnm" path="res://Assets/images/objects/ME_Singles_City_Props_16x16_Trash_1.png" id="2_jwphd"]
+
+[node name="Trashbag" instance=ExtResource("1_yeqtc")]
+item_name = "Trashbag (small)"
+item_type = "Equipment"
+texture = ExtResource("2_jwphd")
+inventory_slots = 10
+inventory_groups = PackedStringArray("Trash")
+fill_bar = true
+inventory_visibility = false
+auto_collect = true

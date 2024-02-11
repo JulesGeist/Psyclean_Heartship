@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://cp4i05nofowxq"]
+
+[ext_resource type="PackedScene" uid="uid://b1csj03bhmpm5" path="res://Scenes/ItemScenes/EffectItem.tscn" id="1_8xe0x"]
+[ext_resource type="Script" path="res://SuckerItem.gd" id="2_3mlxa"]
+[ext_resource type="Texture2D" uid="uid://b8okaoi8ko8i5" path="res://Assets/images/Sprites/item_textures.png" id="3_0bq5g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjnuu"]
+atlas = ExtResource("3_0bq5g")
+region = Rect2(176, 176, 16, 16)
+
+[node name="SuckerItem" groups=["Tool"] instance=ExtResource("1_8xe0x")]
+size_flags_horizontal = 4
+script = ExtResource("2_3mlxa")
+range = 0.0
+suck_time = 0.0
+upgrade_slots = 0
+max_battery = 0.0
+reload = 0.0
+motor_strength = 0.0
+turbo = 0.0
+single_use = false
+texture = SubResource("AtlasTexture_fjnuu")
+inventory_groups = PackedStringArray("SuckerUpgrade")

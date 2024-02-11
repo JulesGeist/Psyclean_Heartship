@@ -1,0 +1,43 @@
+[gd_scene load_steps=9 format=3 uid="uid://boevpnxw28rsf"]
+
+[ext_resource type="PackedScene" uid="uid://dt6k2n40xxdnw" path="res://Scenes/ItemScenes/BaseItem.tscn" id="1_qt4qb"]
+[ext_resource type="Texture2D" uid="uid://b83nx18thq8p8" path="res://Assets/images/objects/ME_Singles_City_Props_16x16_Trash_5.png" id="2_ijcyx"]
+[ext_resource type="Texture2D" uid="uid://b8okaoi8ko8i5" path="res://Assets/images/Sprites/item_textures.png" id="3_5fq5y"]
+[ext_resource type="Theme" uid="uid://i65ly57n7ouv" path="res://Scenes/ui/main_theme.tres" id="4_qwdor"]
+[ext_resource type="Script" path="res://Scenes/ItemScenes/ItemInventory.gd" id="4_rj341"]
+[ext_resource type="PackedScene" uid="uid://dnoq00abdtaq5" path="res://Scenes/ItemScenes/LootItems/Paper.tscn" id="5_k6oyr"]
+
+[sub_resource type="Theme" id="Theme_xqdnj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ti1k"]
+atlas = ExtResource("3_5fq5y")
+region = Rect2(16, 96, 16, 16)
+
+[node name="Longpapers" groups=["Crafting", "Loot"] instance=ExtResource("1_qt4qb")]
+tooltip_text = "Used to craft funny fags.
+Any papes left in there?"
+theme = SubResource("Theme_xqdnj")
+texture_normal = ExtResource("2_ijcyx")
+item_name = "Longpapers"
+item_type = "Loot"
+texture = SubResource("AtlasTexture_0ti1k")
+inventory_slots = 3
+inventory_groups = PackedStringArray("Paper")
+
+[node name="Inventory" type="GridContainer" parent="." index="3"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("4_qwdor")
+script = ExtResource("4_rj341")
+slots = 4
+slot_type = "Pack"
+accepted_groups = PackedStringArray("Paper")
+
+[node name="Paper" parent="Inventory" index="0" instance=ExtResource("5_k6oyr")]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Paper2" parent="Inventory" index="1" instance=ExtResource("5_k6oyr")]
+layout_mode = 2
+size_flags_horizontal = 4

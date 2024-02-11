@@ -1,0 +1,38 @@
+Global.gd
+- Reads in the JSON file and adds the items into a dictionary
+- Also has a function to access the data of items by their key
+
+Inventory.gd
+- Manages the loot currently in the inventory
+- Has a set size
+	- Fills the "inventory" with empty arrays
+- can change items at certain item slot
+- adds an item to the next free slot in the inventory
+- can remove an item from a specific slot
+- can add to the item quantity (remove with a negative value)
+	- probably rename later
+- can retreive the slot number of an item based on it's key
+- can tell if there is an item in the inventory from the key
+
+item_slot.gd
+- Displays the item and it's information
+	- Item icon
+	- Item quantity
+
+slot_container.gd
+- Class: SlotContainer
+- displays item_slots in the desiganted size, given in coloumns and rows
+- updates the inventory display, for when an item is changed.
+
+drag_preview.gd
+- controls the display when dragging in an item.
+- holds the item and updates the item_slot as it follows the cursor.
+
+hotbar.gd
+- displays the hotbar using the coloumns of the main inventory
+- at the bottom of the screen
+
+inventory_menu.gd
+- displays the main inventory using the Inventory size
+- positioned into the middle of the screen
+- starts hidden

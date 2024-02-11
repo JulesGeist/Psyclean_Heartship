@@ -1,0 +1,93 @@
+[gd_scene load_steps=13 format=3 uid="uid://h2txkvdttb6g"]
+
+[ext_resource type="Script" path="res://Scenes/ItemScenes/Powerup.gd" id="1_00r2b"]
+[ext_resource type="Texture2D" uid="uid://txshm0h2u5o4" path="res://Assets/images/Sprites/powerup_textures.png" id="2_i55wn"]
+[ext_resource type="Texture2D" uid="uid://c7jb1fpv2osb3" path="res://Assets/animations/1pick_powerup.png" id="3_bys2v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dn4qk"]
+atlas = ExtResource("2_i55wn")
+region = Rect2(0, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lqnn0"]
+atlas = ExtResource("3_bys2v")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0vy62"]
+atlas = ExtResource("3_bys2v")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6aro2"]
+atlas = ExtResource("3_bys2v")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c3qau"]
+atlas = ExtResource("3_bys2v")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u4c68"]
+atlas = ExtResource("3_bys2v")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rqvwl"]
+atlas = ExtResource("3_bys2v")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_epha3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lqnn0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0vy62")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6aro2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c3qau")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u4c68")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rqvwl")
+}],
+"loop": false,
+"name": &"pick_powerup",
+"speed": 6.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jju7l"]
+
+[node name="Powerup" type="RigidBody2D" groups=["pickable", "powerup"]]
+collision_layer = 3
+collision_mask = 3
+max_contacts_reported = 1
+contact_monitor = true
+can_sleep = false
+script = ExtResource("1_00r2b")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_dn4qk")
+hframes = 3
+vframes = 4
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 3)
+sprite_frames = SubResource("SpriteFrames_epha3")
+animation = &"pick_powerup"
+frame = 5
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 3
+visibility_layer = 3
+shape = SubResource("CircleShape2D_jju7l")
+
+[node name="Runtime" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="timeout" from="Runtime" to="." method="_on_runtime_timeout"]

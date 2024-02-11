@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://bmrt3mprgh88l"]
+
+[ext_resource type="Script" path="res://Scenes/Bullet.gd" id="1_k8mgd"]
+[ext_resource type="Texture2D" uid="uid://b8okaoi8ko8i5" path="res://Assets/images/Sprites/item_textures.png" id="2_x2oic"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u3vvc"]
+atlas = ExtResource("2_x2oic")
+region = Rect2(37, 21, 5, 7)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dqyfr"]
+radius = 4.0
+height = 10.0
+
+[node name="Bullet" type="RigidBody2D"]
+max_contacts_reported = 3
+contact_monitor = true
+script = ExtResource("1_k8mgd")
+
+[node name="Texture" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_u3vvc")
+
+[node name="Shape" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_dqyfr")

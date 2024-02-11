@@ -1,0 +1,33 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://i65ly57n7ouv"]
+
+[ext_resource type="Texture2D" uid="uid://c8q6yrabol2ud" path="res://Assets/images/Sprites/Modern_UI_Style_1.png" id="1_olndk"]
+[ext_resource type="FontFile" uid="uid://dwilasui5pw35" path="res://Assets/font/PressStart2P.ttf" id="1_s5deo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qabxs"]
+atlas = ExtResource("1_olndk")
+region = Rect2(51, 80, 42, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6dqxd"]
+atlas = ExtResource("1_olndk")
+region = Rect2(51, 80, 42, 16)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_46r6l"]
+content_margin_left = 8.0
+content_margin_top = 2.0
+content_margin_right = 8.0
+content_margin_bottom = 2.0
+bg_color = Color(0, 0, 0, 0.5)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[resource]
+default_font = ExtResource("1_s5deo")
+default_font_size = 16
+/colors/black = Color(0, 0, 0, 1)
+/colors/white = Color(0.952941, 0.952941, 0.901961, 1)
+/icons/NormalUI = SubResource("AtlasTexture_qabxs")
+TooltipPanel/icons/normal = SubResource("AtlasTexture_6dqxd")
+TooltipPanel/styles/panel = SubResource("StyleBoxFlat_46r6l")

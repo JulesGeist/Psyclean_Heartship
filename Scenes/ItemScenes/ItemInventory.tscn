@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://burjj12w1ex1j"]
+
+[ext_resource type="Script" path="res://Scenes/ItemScenes/ItemInventory.gd" id="1_ju4pj"]
+
+[node name="ItemInventory" type="GridContainer"]
+offset_right = 16.0
+offset_bottom = 36.0
+script = ExtResource("1_ju4pj")
+
+[connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
+[connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

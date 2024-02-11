@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://ctqp280ojigp3"]
+
+[ext_resource type="Texture2D" uid="uid://c8q6yrabol2ud" path="res://Assets/images/Sprites/Modern_UI_Style_1.png" id="1_4obmv"]
+[ext_resource type="Script" path="res://Scenes/ItemScenes/FillBar.gd" id="2_e5nvt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_47vfr"]
+atlas = ExtResource("1_4obmv")
+region = Rect2(337, 341, 16, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o7ryf"]
+atlas = ExtResource("1_4obmv")
+region = Rect2(336, 246, 17, 6)
+
+[node name="FillBar" type="TextureProgressBar"]
+offset_left = -5.0
+offset_top = 15.0
+offset_right = 11.0
+offset_bottom = 22.0
+rotation = -1.5708
+texture_under = SubResource("AtlasTexture_47vfr")
+texture_progress = SubResource("AtlasTexture_o7ryf")
+script = ExtResource("2_e5nvt")

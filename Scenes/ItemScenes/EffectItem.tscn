@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1csj03bhmpm5"]
+
+[ext_resource type="PackedScene" uid="uid://dt6k2n40xxdnw" path="res://Scenes/ItemScenes/BaseItem.tscn" id="1_c374x"]
+[ext_resource type="Script" path="res://Scenes/ItemScenes/EffectItem.gd" id="2_rk1uy"]
+
+[node name="EffectItem" groups=["EffctItem"] instance=ExtResource("1_c374x")]
+button_mask = 3
+script = ExtResource("2_rk1uy")
+tool_type = "Sucker"
+slot_effect = {}
+action_effect = {}
+use_contained_items = false
+single_use = true
+target_object = ""
+element = ""
+texture = null
+
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]

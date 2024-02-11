@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://ct5gj3oov4077"]
+
+[ext_resource type="PackedScene" uid="uid://b1csj03bhmpm5" path="res://Scenes/ItemScenes/EffectItem.tscn" id="1_glv1r"]
+[ext_resource type="Script" path="res://SuckerItem.gd" id="2_ny288"]
+[ext_resource type="Texture2D" uid="uid://b8okaoi8ko8i5" path="res://Assets/images/Sprites/item_textures.png" id="3_4bads"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6bgi"]
+atlas = ExtResource("3_4bads")
+region = Rect2(176, 176, 16, 16)
+
+[node name="SuckerItem" groups=["Tool"] instance=ExtResource("1_glv1r")]
+size_flags_horizontal = 4
+script = ExtResource("2_ny288")
+range = 7.0
+suck_time = 3.0
+upgrade_slots = 2
+max_battery = 100.0
+reload = 2.3
+motor_strength = 100.0
+turbo = 0.0
+single_use = false
+target_object = "suckable"
+item_name = "ButtSuck 100"
+item_type = "Equipment"
+texture = SubResource("AtlasTexture_t6bgi")
+inventory_groups = PackedStringArray("SuckerUpgrade")

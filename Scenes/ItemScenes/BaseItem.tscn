@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=3 uid="uid://dt6k2n40xxdnw"]
+
+[ext_resource type="Texture2D" uid="uid://txshm0h2u5o4" path="res://Assets/images/Sprites/powerup_textures.png" id="1_c1ba6"]
+[ext_resource type="Script" path="res://Scenes/ItemScenes/BaseItem.gd" id="1_go5c8"]
+[ext_resource type="Texture2D" uid="uid://b6jokg4xkpumm" path="res://Assets/images/Item_BG_normal_framex9sprite.png" id="4_54bam"]
+[ext_resource type="Texture2D" uid="uid://cfpkbn60meldk" path="res://Assets/images/Item_BG_normal.png" id="4_i7k22"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h42x1"]
+atlas = ExtResource("1_c1ba6")
+region = Rect2(32, 48, 16, 16)
+
+[node name="BaseItem" type="TextureButton" groups=["Item"]]
+custom_minimum_size = Vector2(16, 16)
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 20.0
+offset_bottom = 20.0
+keep_pressed_outside = true
+texture_normal = SubResource("AtlasTexture_h42x1")
+script = ExtResource("1_go5c8")
+texture = SubResource("AtlasTexture_h42x1")
+inventory_slots = 2
+inventory_visibility = true
+
+[node name="CursorPreview" type="TextureRect" parent="."]
+top_level = true
+visibility_layer = 3
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 0
+offset_right = 48.0
+offset_bottom = 48.0
+mouse_filter = 2
+stretch_mode = 4
+
+[node name="BG" type="TextureRect" parent="."]
+show_behind_parent = true
+texture_repeat = 2
+layout_mode = 0
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 18.0
+offset_bottom = 18.0
+size_flags_vertical = 3
+texture = ExtResource("4_i7k22")
+stretch_mode = 1
+
+[node name="Frame" type="NinePatchRect" parent="."]
+custom_minimum_size = Vector2(26, 26)
+layout_mode = 1
+offset_left = -5.0
+offset_top = -6.0
+offset_right = 21.0
+offset_bottom = 20.0
+texture = ExtResource("4_54bam")
+patch_margin_left = 6
+patch_margin_top = 7
+patch_margin_right = 6
+patch_margin_bottom = 6
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
+[connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]

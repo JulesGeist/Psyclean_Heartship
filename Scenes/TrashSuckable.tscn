@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://diojcycvwfese"]
+
+[ext_resource type="Script" path="res://Scripts/trash_suckable.gd" id="1_qkg45"]
+[ext_resource type="Texture2D" uid="uid://63kpf01n2x5a" path="res://Assets/images/objects/buttcoin.png" id="2_2u0ra"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_asinu"]
+friction = 0.47
+absorbent = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ywy3j"]
+size = Vector2(19.7869, 6.22218)
+
+[node name="TrashSuckable" type="RigidBody2D" groups=["suckable", "trash"]]
+light_mask = 3
+visibility_layer = 3
+z_index = -1
+z_as_relative = false
+position = Vector2(-10, 0)
+collision_layer = 8
+collision_mask = 8
+physics_material_override = SubResource("PhysicsMaterial_asinu")
+max_contacts_reported = 1
+contact_monitor = true
+can_sleep = false
+linear_damp = 10.675
+script = ExtResource("1_qkg45")
+trash_type = "Butt"
+loot = "Buttcoin"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2, -1.69407e-21)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_2u0ra")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 3
+visibility_layer = 3
+position = Vector2(1.9412, 0.254951)
+rotation = 0.226675
+shape = SubResource("RectangleShape2D_ywy3j")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

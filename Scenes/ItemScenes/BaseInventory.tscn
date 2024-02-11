@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhqcls476gjjd"]
+
+[ext_resource type="Script" path="res://Scenes/ItemScenes/BaseInventory.gd" id="1_66vt4"]
+
+[node name="BaseInventory" type="GridContainer"]
+z_index = 1
+custom_minimum_size = Vector2(20, 20)
+offset_right = 20.0
+offset_bottom = 20.0
+script = ExtResource("1_66vt4")
+
+[connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
+[connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]

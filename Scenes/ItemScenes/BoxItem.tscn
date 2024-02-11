@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://bkdtn1snjkp"]
+
+[ext_resource type="PackedScene" uid="uid://dt6k2n40xxdnw" path="res://Scenes/ItemScenes/BaseItem.tscn" id="1_lchlk"]
+[ext_resource type="Script" path="res://Scenes/ItemScenes/BoxItem.gd" id="2_3s52h"]
+[ext_resource type="Script" path="res://Scenes/ItemScenes/ItemInventory.gd" id="3_hvvwy"]
+[ext_resource type="Texture2D" uid="uid://cfpkbn60meldk" path="res://Assets/images/Item_BG_normal.png" id="4_wqtah"]
+
+[node name="BoxItem" instance=ExtResource("1_lchlk")]
+script = ExtResource("2_3s52h")
+immovable = false
+only_drop = false
+only_extract = false
+slots = 0
+columns = 0
+slot_type = ""
+accepted_groups = PackedStringArray()
+accepted_items = PackedStringArray()
+texture = null
+inventory_slots = 0
+
+[node name="CursorPreview" parent="." index="0"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ItemBG" type="TextureRect" parent="." index="1"]
+show_behind_parent = true
+texture_repeat = 2
+layout_mode = 0
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 18.0
+offset_bottom = 18.0
+size_flags_vertical = 3
+texture = ExtResource("4_wqtah")
+stretch_mode = 1
+
+[node name="BG" parent="." index="2"]
+offset_top = 18.0
+offset_bottom = 38.0
+
+[node name="Inventory" type="GridContainer" parent="." index="4"]
+z_index = 1
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 0
+offset_top = 20.0
+offset_right = 16.0
+offset_bottom = 36.0
+script = ExtResource("3_hvvwy")
+
+[connection signal="child_entered_tree" from="Inventory" to="Inventory" method="_on_child_entered_tree"]
+[connection signal="child_exiting_tree" from="Inventory" to="Inventory" method="_on_child_exiting_tree"]
+[connection signal="mouse_exited" from="Inventory" to="Inventory" method="_on_mouse_exited"]

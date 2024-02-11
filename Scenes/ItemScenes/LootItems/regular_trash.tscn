@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bl2st8o35ptj2"]
+
+[ext_resource type="PackedScene" uid="uid://dt6k2n40xxdnw" path="res://Scenes/ItemScenes/BaseItem.tscn" id="1_on62u"]
+[ext_resource type="Texture2D" uid="uid://b83nx18thq8p8" path="res://Assets/images/objects/ME_Singles_City_Props_16x16_Trash_5.png" id="2_ckcim"]
+
+[node name="RegularTrash" groups=["Trash"] instance=ExtResource("1_on62u")]
+texture_normal = ExtResource("2_ckcim")
+item_name = "Regular Trash"
+item_type = "Trash"
+texture = ExtResource("2_ckcim")
+inventory_slots = 0
+inventory_groups = PackedStringArray("Trash")
+inventory_visibility = false
